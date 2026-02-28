@@ -1,0 +1,44 @@
+{
+  "kind": "build_request",
+  "title": "Add Internet Identity authentication",
+  "projectName": "BLACK MASSAGE",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "text": "Integrate Internet Identity authentication so users can securely log in and log out of the app. The login page should present a 'Login with Internet Identity' button that triggers the II authentication flow. After successful authentication, the user should be directed to the main messaging layout (or profile setup if first time). Unauthenticated users should only see the login page.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "YES",
+          "add user authentication with Internet Identity so people can securely log in"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Unauthenticated users see only the login page and cannot access the chat UI",
+        "Clicking 'Login with Internet Identity' opens the Internet Identity authentication flow",
+        "After successful login, the user is redirected to the main messaging layout",
+        "First-time users are prompted with the profile setup modal to enter a username before accessing chat",
+        "A logout button is accessible from the messaging layout and properly clears the session",
+        "Returning authenticated users are automatically directed to the main messaging layout without re-login"
+      ]
+    }
+  ],
+  "constraints": [
+    "Authentication must use Internet Identity exclusively — no other auth providers",
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts",
+    "Do not modify files under frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "Third-party authentication (Google, GitHub, Facebook, etc.)",
+    "Email/password authentication",
+    "Role-based access control changes beyond what is already implemented"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
