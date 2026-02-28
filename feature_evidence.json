@@ -1,26 +1,4 @@
 {
   "kind": "feature_evidence_report",
-  "features": [
-    {
-      "featureId": "feature-integrate-internet-identity-authentication-so-users-can-securely-log-in-and-log-out-of-the-app-the-login-page-should-present-a-login-with-internet-identity-button-that-triggers-the-ii-authentication-flow-after-successful-authentication-the-user-should-be-directed-to-the-main-messaging-layout-or-profile-setup-if-first-time-unauthenticated-users-should-only-see-the-login-page",
-      "featureTitle": "Integrate Internet Identity authentication so users can securely log in and log out of the app. The login page should present a 'Login with Internet Identity' button that triggers the II authentication flow. After successful authentication, the user should be directed to the main messaging layout (or profile setup if first time). Unauthenticated users should only see the login page.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/ProfileSetupModal.tsx",
-        "frontend/src/hooks/useQueries.ts"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
-      ],
-      "confidence": "high"
-    }
-  ]
+  "features": []
 }

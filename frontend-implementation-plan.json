@@ -1,44 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Internet Identity Authentication",
+  "title": "Add ChatFlow app logo to login page",
   "requirements": [
     {
-      "id": "REQ-8",
-      "summary": "Integrate Internet Identity authentication with secure login/logout flow, automatic redirection based on auth state, and first-time profile setup",
+      "id": "REQ-9",
+      "summary": "Display the generated ChatFlow logo on the login page above the app name using the teal/green palette",
       "acceptanceCriteria": [
-        "Unauthenticated users see only the login page and cannot access the chat UI",
-        "Clicking 'Login with Internet Identity' opens the Internet Identity authentication flow",
-        "After successful login, the user is redirected to the main messaging layout",
-        "First-time users are prompted with the profile setup modal to enter a username before accessing chat",
-        "A logout button is accessible from the messaging layout and properly clears the session",
-        "Returning authenticated users are automatically directed to the main messaging layout without re-login"
+        "A logo image is generated and stored in frontend/public/assets/generated/",
+        "The logo is displayed on the LoginPage component above the 'ChatFlow' app name",
+        "The logo uses teal/green colors consistent with the existing app theme",
+        "The logo renders clearly on both light and dark backgrounds",
+        "The logo has appropriate sizing and spacing so it does not crowd other login page elements"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Enhance authentication flow orchestration to ensure unauthenticated users see only the LoginPage. Use the authorization component's authentication hooks (useInternetIdentity) to check auth state and the useGetCallerUserProfile hook to determine if profile setup is needed. Implement proper loading states to prevent UI flashing. After successful login with an existing profile, render MessagingLayout. For first-time users (authenticated but no profile), show ProfileSetupModal before granting access to MessagingLayout. Verify the authorization component's usage instructions for proper integration of authentication state and profile checking."
-        },
-        {
           "path": "frontend/src/components/LoginPage.tsx",
           "operation": "modify",
-          "description": "Update to use the authorization component's Internet Identity authentication. Ensure the 'Login with Internet Identity' button uses the login() method from useInternetIdentity hook and properly handles the authentication flow. Add loading state during login (loginStatus === 'logging-in'). Include error handling for authentication failures. Display the chatflow-logo from frontend/public/assets/generated/chatflow-logo.dim_256x256.png. Verify the authorization component's usage instructions before implementing the login button behavior."
-        },
-        {
-          "path": "frontend/src/components/MessagingLayout.tsx",
-          "operation": "modify",
-          "description": "Add a logout button to the sidebar footer that uses the clear() method from useInternetIdentity hook and clears the React Query cache using queryClient.clear() to remove all cached application data including user profiles. Ensure the logout flow matches the authorization component's recommended pattern for clearing authentication state and cached data."
-        },
-        {
-          "path": "frontend/src/components/ProfileSetupModal.tsx",
-          "operation": "modify",
-          "description": "Ensure the modal uses the authorization component's saveCallerUserProfile mutation to save the user's profile (username, avatar, status) on first login. After successful profile save, the user should be able to access the main messaging layout. Include proper error handling for profile save failures. Reference the default-avatar from frontend/public/assets/generated/default-avatar.dim_128x128.png if needed for initial avatar setup."
-        },
-        {
-          "path": "frontend/src/hooks/useQueries.ts",
-          "operation": "modify",
-          "description": "Add or update the useGetCallerUserProfile hook following the authorization component's pattern to prevent profile setup modal flash. The hook should check if the actor is available and not fetching before querying, return custom loading state that properly reflects actor dependency, and return isFetched flag to distinguish between 'loading' and 'no profile exists'. Ensure queryKey is ['currentUserProfile'] for proper cache management. This hook is critical for the profile setup flow in App.tsx."
+          "description": "Add the ChatFlow logo image above the app name heading. Reference the generated logo at frontend/public/assets/generated/chatflow-logo.dim_256x256.png as a static asset. Apply appropriate sizing (e.g., 80-120px width) and spacing (e.g., mb-4 or mb-6) to ensure the logo does not crowd the app name or feature list. Ensure the logo renders clearly on both light and dark backgrounds by applying appropriate styling or container background."
         }
       ]
     }

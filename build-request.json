@@ -1,44 +1,43 @@
 {
   "kind": "build_request",
-  "title": "Add Internet Identity authentication",
-  "projectName": "BLACK MASSAGE",
+  "title": "Add ChatFlow app logo",
+  "projectName": "ChatFlow",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-8",
-      "text": "Integrate Internet Identity authentication so users can securely log in and log out of the app. The login page should present a 'Login with Internet Identity' button that triggers the II authentication flow. After successful authentication, the user should be directed to the main messaging layout (or profile setup if first time). Unauthenticated users should only see the login page.",
-      "target": "both",
+      "id": "REQ-9",
+      "text": "Generate a ChatFlow app logo and display it on the login page above the app name. The logo should be a modern, minimal chat/messaging icon using teal/green accent colors consistent with the app's WhatsApp-inspired palette.",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "YES",
-          "add user authentication with Internet Identity so people can securely log in"
+          "LOGO?"
         ]
       },
       "acceptanceCriteria": [
-        "Unauthenticated users see only the login page and cannot access the chat UI",
-        "Clicking 'Login with Internet Identity' opens the Internet Identity authentication flow",
-        "After successful login, the user is redirected to the main messaging layout",
-        "First-time users are prompted with the profile setup modal to enter a username before accessing chat",
-        "A logout button is accessible from the messaging layout and properly clears the session",
-        "Returning authenticated users are automatically directed to the main messaging layout without re-login"
+        "A logo image is generated and stored in frontend/public/assets/generated/",
+        "The logo is displayed on the LoginPage component above the 'ChatFlow' app name",
+        "The logo uses teal/green colors consistent with the existing app theme",
+        "The logo renders clearly on both light and dark backgrounds",
+        "The logo has appropriate sizing and spacing so it does not crowd other login page elements"
       ]
     }
   ],
   "constraints": [
-    "Authentication must use Internet Identity exclusively — no other auth providers",
-    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts",
-    "Do not modify files under frontend/src/components/ui"
+    "Do not modify files in frontend/src/hooks/ or frontend/src/components/ui",
+    "Logo colors must align with the existing teal/green WhatsApp-inspired palette defined in frontend/src/index.css"
   ],
   "nonGoals": [
-    "Third-party authentication (Google, GitHub, Facebook, etc.)",
-    "Email/password authentication",
-    "Role-based access control changes beyond what is already implemented"
+    "Adding a logo to the chat header or sidebar (only the login page for now)",
+    "Animated or SVG-based logo (static image only)",
+    "Backend changes"
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Modern minimal chat bubble icon with a teal/green gradient, two overlapping rounded speech bubbles, clean flat design on a transparent background (chatflow-logo.dim_256x256.png)"
+    ],
     "edits": []
   }
 }

@@ -1,14 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Integrate Internet Identity authentication so users can securely log in and log out of the BLACK MASSAGE app.
+**Goal:** Add a ChatFlow app logo to the login page above the app name.
 
 **Planned changes:**
-- Add a login page with a "Login with Internet Identity" button that triggers the II authentication flow
-- Restrict access so unauthenticated users can only see the login page
-- Redirect successfully authenticated users to the main messaging layout
-- Prompt first-time users with a profile setup modal to enter a username before accessing chat
-- Add a logout button in the messaging layout that clears the session
-- Automatically redirect returning authenticated users to the main messaging layout without re-login
+- Store the generated ChatFlow logo image in `frontend/public/assets/generated/`
+- Display the logo on the LoginPage component above the "ChatFlow" app name with appropriate sizing and spacing
+- Ensure the logo renders clearly on both light and dark backgrounds using teal/green colors consistent with the existing app theme
 
-**User-visible outcome:** Users must log in via Internet Identity to access the app. New users set up a username on first login, while returning users go straight to the messaging layout. A logout button is available to end the session.
+**User-visible outcome:** Users visiting the login page will see the ChatFlow logo displayed above the app name.
